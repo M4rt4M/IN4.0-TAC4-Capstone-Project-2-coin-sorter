@@ -1,0 +1,33 @@
+#################################
+# 2 - Multiple coin calculator  #
+#################################
+
+### Skips a coin of choice; uses all coins if nothing is skipped or wrong value given
+
+# Define variables
+coins = [200, 100, 50, 20, 10]
+values = ["£2", "£1", "50p", "20p", "10p"]
+
+# Create functions
+def multiple_coins(p):
+  if p<=0 and p>=10000:
+    print("\nSorry, this value is out of range.")
+  else:
+    for i in range(len(coins)):
+      print(str(p//coins[i]) + " " + values[i] + " coin(s)")
+      p = p%coins[i]
+    print(str(p) + " pennies remaining")
+
+# Asks user for input
+p=int(input("\nPlease enter an amount of pennies between 0-10000: "))
+print("Here are available denominations: £2, £1, 50p, 20p, 10p")
+skip=str(input("\nPlease enter the value you would like to skip. If you don't choose anything, all coins will be displayed: "))
+if skip:
+  if skip in values:
+    coins.remove(coins[values.index(skip)])
+    values.remove(skip)
+  else:
+    print("\nSorry, you cannot skip this value")
+
+# Actual calculator
+multiple_coins(p)
