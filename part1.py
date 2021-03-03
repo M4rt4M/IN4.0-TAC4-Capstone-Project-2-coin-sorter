@@ -1,6 +1,8 @@
 # Define variables
 values = [200, 100, 50, 20, 10]
 coins = ["£2", "£1", "50p", "20p", "10p"]
+p_min = 0
+p_max = 10000
 
 ###############################
 # 1 - Single coin calculator  #
@@ -10,7 +12,7 @@ coins = ["£2", "£1", "50p", "20p", "10p"]
 
 # Create functions
 def single_coin(p, choice):
-  if p<=0 and p>=10000:
+  if p<=p_min and p>=p_max:
     print("Sorry, this value is out of range.")
   else:
     print(str(p//values[coins.index(choice)]) + " " + choice + " coin(s)")
@@ -38,7 +40,7 @@ while choice: #This while loop will run for as long as string <choice> is not em
 
 # Create functions
 def multiple_coins(p):
-  if p<=0 and p>=10000:
+  if p<=p_min and p>=p_max:
     print("\nSorry, this value is out of range.")
   else:
     for i in range(len(values)):
@@ -64,7 +66,10 @@ multiple_coins(p)
 # 3 - Print coin list  #
 ########################
 
-### What it does
+### Prints available coins
+print("Here are available coins:")
+for i in range(len(coins)):
+  print(coins[i])
 
 ####################
 # 4 - Set details  #
@@ -78,17 +83,11 @@ multiple_coins(p)
 
 # Run
 
-####################
-# 5 -   #
-####################
+#######################################
+# 5 - Display program configurations  #
+#######################################
 
-### What it does
-
-# Create functions
-
-# Ask user for input
-
-# Run
+### Displays program configurations
 
 ####################
 # 6 -   #
