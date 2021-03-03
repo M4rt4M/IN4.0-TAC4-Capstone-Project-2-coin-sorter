@@ -6,13 +6,30 @@ values = ["£2", "£1", "50p", "20p", "10p"]
 # 1 - Single coin calculator  #
 ###############################
 
-### What it does
+### Calculates coins of one chosen denomination; user forced to choose one 
 
 # Create functions
+def single_coin(p, choice):
+  if p<=0 and p>=10000:
+    print("Sorry, this value is out of range.")
+  else:
+    print(str(p//values[coins.index(choice)]) + " " + choice + " coin(s)")
+    print(str(p%values[coins.index(choice)]) + " pennies remaining")
 
 # Ask user for input
+p=int(input("Please enter an amount of pennies between 0-10000:"))
+print("Here are available denominations: £2, £1, 50p, 20p, 10p")
+choice = "nothing"
+
 
 # Run
+while choice:
+  choice=str(input("Please enter one denomination of choice: "))
+  if choice in coins:
+    single_coin(p, choice)
+    break
+  else:
+    print("Sorry, you cannot choose this value.")
 
 #################################
 # 2 - Multiple coin calculator  #
