@@ -68,8 +68,6 @@ multiple_coins(p)
 
 ### Prints available coins
 print("Here are available coins:")
-for i in range(len(coins)):
-  print(coins[i])
 
 ####################
 # 4 - Set details  #
