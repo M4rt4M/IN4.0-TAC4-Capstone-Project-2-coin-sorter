@@ -15,6 +15,9 @@ p_max = 10000
 ####################
 # Responsive menu  #
 ####################
+
+###User presses a 1-6 key to navigate
+
 while True: 
   #This loop will run until break is triggered
   print (31 * '-')
