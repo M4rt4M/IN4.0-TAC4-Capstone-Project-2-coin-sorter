@@ -4,7 +4,7 @@ import requests
 api_key = 'B1CRPD0B1HSR22CV'
 #The amount variable will be the user's input of the amount needed to be converted
 Amount = float(input("Amount: ")) 
-# from_c is the currency from the user is converting from
+# from_c is the currency from which the user is converting from
 from_c = input("From (type the currency code in all caps. E.g. USD for $): ") 
 # to_c is the currency to which the user is converting to
 to_c = input("To (type the currency code in all caps. E.g. USD for $): ") 
