@@ -14,7 +14,7 @@ coins = []
 for i in range(len(values)):
   temp = currency_dict[currency] + str(values[i]/100) + str(0)
   coins.append(temp)
-print(str(coins))
+
 
 #Possible input for GBP
 ###QUESTION: Can we generate these lists depending on the currency?
