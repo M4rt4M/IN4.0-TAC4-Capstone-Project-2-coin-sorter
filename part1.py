@@ -95,13 +95,24 @@ def multiple_coins():
         print(coins[i])
       skip=str(input("\nPlease enter the value you would like to skip. If you don't choose anything, all coins will be displayed: "))
       if skip:
+        if currency == "GBP":  
+          if skip in two:
+            skip = "£2.00"
+          if skip in one:
+            skip = "£1.00"
+          if skip in fifty:
+            skip = "£0.50"
+          if skip in twenty:
+            skip = "£0.20"
+          if skip in ten:
+            skip = "£0.10"
         if skip in coins: 
           values.remove(values[coins.index(skip)])
           coins.remove(skip)
         else:
           print("\nSorry, you cannot skip this value")
       else:
-        print("Displaying all available coins")   
+        print("Displaying all available coins")    
       for i in range(len(values)):
         print(str(p//values[i]) + " " + coins[i] + " coin(s)")
         p = p%values[i]
