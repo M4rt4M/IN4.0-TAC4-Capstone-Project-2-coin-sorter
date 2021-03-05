@@ -17,6 +17,7 @@ for i in range(len(values)):
 print(str(coins))
 
 #Possible input for GBP
+###QUESTION: Can we generate these lists depending on the currency?
 two = ["£2", "£2.0", "£ 2", "2", "2.0", "2.00", "2 pounds", "2pounds", "2GBP", "2.00GBP", "2 GBP", "2gbp", "2.00gbp", "2 gbp", "two", "two pounds", "two GBP", "two gbp"]
 one = ["£1", "£1.0", "£ 1", "1", "1.0", "1.00", "1 pound", "1pound", "1GBP", "1.00GBP", "1 GBP", "1gbp", "1.00gbp", "1 gbp", "one", "one pound", "one GBP", "one gbp"]
 fifty = ["50p", "£0.5", "£ 0.5", "£ 0.50", "0.50", "0.5", "50 pence", "50pence", "0.5GBP", "0.50GBP", "0.50 GBP", "0.5gbp", "0.50gbp", "0.50 gbp", "fifty", "fifty pence"]
@@ -48,16 +49,17 @@ def single_coin():
             print(coins[i])
       ####UPDATE for other calc!!!
         choice=str(input("Please enter one denomination of choice: "))
-        if choice in two:
-          choice = "£2.00"
-        if choice in one:
-          choice = "£1.00"
-        if choice in fifty:
-          choice = "£0.50"
-        if choice in twenty:
-          choice = "£0.20"
-        if choice in ten:
-          choice = "£0.10"
+        if currency == "GBP":  
+          if choice in two:
+            choice = "£2.00"
+          if choice in one:
+            choice = "£1.00"
+          if choice in fifty:
+            choice = "£0.50"
+          if choice in twenty:
+            choice = "£0.20"
+          if choice in ten:
+            choice = "£0.10"
         if choice in coins: #This code will only run if user inputs one of pre-defined values
           print(str(p//values[coins.index(choice)]) + " " + choice + " coin(s)")
           print(str(p%values[coins.index(choice)]) + " pennies remaining")
@@ -67,6 +69,7 @@ def single_coin():
       break
     else:
       print("Sorry, this value is out of range.")
+
 # Run
 single_coin()
 
