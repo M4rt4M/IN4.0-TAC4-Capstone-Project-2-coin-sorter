@@ -39,7 +39,8 @@ def single_coin():
       try:
         p=int(input("Please enter an amount of pennies between 0-10000:"))
       except ValueError:
-        print("This needs to be a whole number. Terminating calculator.")
+        print("This needs to be a whole number. Try again")
+        multiple_coins()
         return
     if p>=p_min and p<=p_max:
       choice = "nothing"
@@ -80,28 +81,37 @@ single_coin()
 ### Skips a coin of choice; uses all coins if nothing is skipped or wrong value given
 
 # Create functions
-def multiple_coins(p):
-  if p<=p_min and p>=p_max:
-    print("\nSorry, this value is out of range.")
-  else:
-    for i in range(len(values)):
-      print(str(p//values[i]) + " " + coins[i] + " coin(s)")
-      p = p%values[i]
-    print(str(p) + " pennies remaining")
-
-# Ask user for input
-p=int(input("\nPlease enter an amount of pennies between 0-10000: "))
-print("Here are available denominations: £2, £1, 50p, 20p, 10p")
-skip=str(input("\nPlease enter the value you would like to skip. If you don't choose anything, all coins will be displayed: "))
-if skip: #This code will runonly if user inputs a value (any)
-  if skip in coins: #This code will run only if the value given by user is in pre-defined list
-    values.remove(values[coins.index(skip)])
-    coins.remove(skip)
-  else: #This code will run if the value given by user is NOT in pre-defined list
-    print("\nSorry, you cannot skip this value")
+def multiple_coins():
+  while True:
+    try:
+      p=int(input("Please enter an amount of pennies between 0-10000:"))
+    except ValueError:
+      print("This needs to be a whole number. Try again")
+      multiple_coins()
+      return
+    if p>=p_min and p<=p_max:
+      print("Here are available denominations: ")
+      for i in range(len(coins)):
+        print(coins[i])
+      skip=str(input("\nPlease enter the value you would like to skip. If you don't choose anything, all coins will be displayed: "))
+      if skip:
+        if skip in coins: 
+          values.remove(values[coins.index(skip)])
+          coins.remove(skip)
+        else:
+          print("\nSorry, you cannot skip this value")
+      else:
+        print("Displaying all available coins")   
+      for i in range(len(values)):
+        print(str(p//values[i]) + " " + coins[i] + " coin(s)")
+        p = p%values[i]
+      print(str(p) + " pennies remaining")
+      break
+    else:
+      print("\nSorry, this value is out of range.")
 
 # Run calculator
-multiple_coins(p)
+multiple_coins()
 
 ########################
 # 3 - Print coin list  #
