@@ -2,9 +2,23 @@
 # Define variables  #
 #####################
 values = [200, 100, 50, 20, 10]
-coins = ["£2", "£1", "50p", "20p", "10p"]
+currency_dict = {  
+  "GBP": "£", 
+  "USD": "$",
+  "EUR": "€"
+  }
+#This is a list of available currencies. Added currencies must be decimal, i.e. 1USD = 100 cents. Add new currencies after a comma, in the following format: "currency_code" : "currency_symbol"
+
+#These are default settings 
+currency = "GBP" #This must be one of the currency codes in the currency_dict above  
 p_min = 0
 p_max = 10000
+
+#This takes the default currency and makes the list of available coins according to their values
+coins = []
+for i in range(len(values)):
+  temp = currency_dict[currency] + str(values[i]/100) + str(0)
+  coins.append(temp)
 
 #####################
 # Define functions  #
@@ -14,7 +28,8 @@ def submenu():
           print("[1] Set currency")
           print("[2] Set minimum coin input value")
           print("[3] Set maximum coin input value")
-          print("[4] Return to Main menu")
+          print("[4] Return to Main Menu")
+
 ####################
 # Responsive menu  #
 ####################
@@ -52,26 +67,27 @@ while True:
   elif Entry == 4:
     #This is the sub-menu
     while True:
-        submenu()
-        option = int(input("Enter your option: "))
-        if option == 1:
-            curr = input("Type the currency code (e.g. 'gbp'): ")
-            if curr == 'gbp':
-                print("GBP currency is set.")
-            else:
-                print("Sorry, you cannot select this currency")
-        elif option == 2:
-            p_max= int(input("Enter an amount between 0 to 1000: "))
-            print("The maximum value is set to", p_max)
-        elif option == 3:
-            p_min= int(input("Enter an amount between 0 to 1000: "))
-            print("The minimum value is set to", p_min)
-        elif option == 4:
-            break
+      submenu()
+      option = int(input("Enter your option: "))
+      if option == 1:  #Can we use the currency_dict from above to do this?
+        curr = input("Type the currency code (e.g. 'gbp'): ")
+        if curr == 'gbp':
+          print("GBP currency is set.")
         else:
+          print("Sorry, you cannot select this currency")
+      elif option == 2:
+        p_max= int(input("Enter an amount between 0 to 1000: "))
+        print("The maximum value is set to ", p_max)
+      elif option == 3:
+        p_min= int(input("Enter an amount between 0 to 1000: "))
+        print("The minimum value is set to ", p_min)
+      elif option == 4:
+            break
+      else:
             print("invalid option. Try again.")
     #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
     print("Display program configuration")
   else:    ## default ##
+    print ("Invalid number. Try again...")
     print ("Invalid number. Try again...")
