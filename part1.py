@@ -1,16 +1,17 @@
 # Define variables
 values = [200, 100, 50, 20, 10]
-currency_dict = {
+currency_dict = {  #This is a list of available currencies. Added currencies must be decimal, i.e. 1USD = 100 cents. Add new currencies after a comma, in the following format: "currency_code" : "currency_symbol"
   "GBP": "£", 
   "USD": "$",
   "EUR": "€"
   }
-#These will be displayed in settings 
-currency = "GBP" #so that it can be updated
+
+#These are default settings 
+currency = "GBP" #This must be one of the currency codes in the currency_dict above  
 p_min = 0
 p_max = 10000
 
-#This takes the currency and makes the list of available coins
+#This takes the default currency and makes the list of available coins according to their values
 coins = []
 for i in range(len(values)):
   temp = currency_dict[currency] + str(values[i]/100) + str(0)
@@ -37,7 +38,7 @@ def single_coin():
       p=int(input("\nPlease enter an amount of pennies between 0-10000:"))
     except ValueError:
       print("This needs to be a whole number. Try again")
-      single_coin()
+      single_coin() #This is a recursive function. It will be triggered again and again, unless the user inputs the accepted number of pennies
       return
     if p>=p_min and p<=p_max:
       choice = "nothing"
