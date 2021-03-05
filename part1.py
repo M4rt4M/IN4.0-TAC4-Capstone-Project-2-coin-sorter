@@ -2,7 +2,8 @@
 values = [200, 100, 50, 20, 10]
 currency_dict = {
   "GBP": "£", 
-  "USD": "$"
+  "USD": "$",
+  "EUR": "€"
   }
 #These will be displayed in settings 
 currency = "GBP" #so that it can be updated
@@ -33,22 +34,17 @@ ten = ["10p", "£0.1", "£ 0.10", "£ 0.1", "0.10", "0.1", "10 pence", "10pence"
 def single_coin():
   while True:
     try:
-      p=int(input("Please enter an amount of pennies between 0-10000:"))
+      p=int(input("\nPlease enter an amount of pennies between 0-10000:"))
     except ValueError:
-      print("This needs to be a whole number. You have one more try.")
-      try:
-        p=int(input("Please enter an amount of pennies between 0-10000:"))
-      except ValueError:
-        print("This needs to be a whole number. Try again")
-        multiple_coins()
-        return
+      print("This needs to be a whole number. Try again")
+      single_coin()
+      return
     if p>=p_min and p<=p_max:
       choice = "nothing"
       while choice: #This while loop will run for as long as string <choice> is not empty
-        print("Here are available denominations: ")
+        print("\nHere are available denominations: ")
         for i in range(len(coins)):
             print(coins[i])
-      ####UPDATE for other calc!!!
         choice=str(input("Please enter one denomination of choice: "))
         if currency == "GBP":  
           if choice in two:
@@ -66,7 +62,7 @@ def single_coin():
           print(str(p%values[coins.index(choice)]) + " pennies remaining")
           break #Ends the while loop after 1 calculation
         else: #This code will run if the value given by user is NOT in pre-defined list
-            print("Sorry, you cannot choose this value. Try writing in one of the following formats: £2.00, 1GBP, 50p, £0.2, 0.1GBP")
+          print("Sorry, you cannot choose this value. Try writing in one of the following formats: £2.00, 1GBP, 50p, £0.2, 0.1GBP")
       break
     else:
       print("Sorry, this value is out of range.")
@@ -84,13 +80,13 @@ single_coin()
 def multiple_coins():
   while True:
     try:
-      p=int(input("Please enter an amount of pennies between 0-10000:"))
+      p=int(input("\nPlease enter an amount of pennies between 0-10000:"))
     except ValueError:
       print("This needs to be a whole number. Try again")
       multiple_coins()
       return
     if p>=p_min and p<=p_max:
-      print("Here are available denominations: ")
+      print("\nHere are available denominations: ")
       for i in range(len(coins)):
         print(coins[i])
       skip=str(input("\nPlease enter the value you would like to skip. If you don't choose anything, all coins will be displayed: "))
@@ -112,7 +108,7 @@ def multiple_coins():
         else:
           print("\nSorry, you cannot skip this value")
       else:
-        print("Displaying all available coins")    
+        print("\nDisplaying all available coins")    
       for i in range(len(values)):
         print(str(p//values[i]) + " " + coins[i] + " coin(s)")
         p = p%values[i]
