@@ -9,9 +9,12 @@ p_max = 10000
 #####################
 # Define functions  #
 #####################
-
-
-
+def submenu():
+          print("     Set Details")
+          print("[1] Set currency")
+          print("[2] Set minimum coin input value")
+          print("[3] Set maximum coin input value")
+          print("[4] Return to Main menu")
 ####################
 # Responsive menu  #
 ####################
@@ -48,12 +51,25 @@ while True:
         print(coins[i])
   elif Entry == 4:
     #This is the sub-menu
-    print("Here is where user can try to set details")
-    Entry2 = input("")
-    if Entry2 == 0:
-      print("Pressed 0")
-    else:
-      print("Something else")
+    while True:
+        submenu()
+        option = int(input("Enter your option: "))
+        if option == 1:
+            curr = input("Type the currency code (e.g. 'gbp'): ")
+            if curr == 'gbp':
+                print("GBP currency is set.")
+            else:
+                print("Sorry, you cannot select this currency")
+        elif option == 2:
+            p_max= int(input("Enter an amount between 0 to 1000: "))
+            print("The maximum value is set to", p_max)
+        elif option == 3:
+            p_min= int(input("Enter an amount between 0 to 1000: "))
+            print("The minimum value is set to", p_min)
+        elif option == 4:
+            break
+        else:
+            print("invalid option. Try again.")
     #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
     print("Display program configuration")
