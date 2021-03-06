@@ -24,11 +24,14 @@ for i in range(len(values)):
 # Define functions  #
 #####################
 def submenu():
-          print("     Set Details")
-          print("[1] Set currency")
-          print("[2] Set minimum coin input value")
-          print("[3] Set maximum coin input value")
-          print("[4] Return to Main Menu")
+          print(31 * '-')
+          print("***Set Details - Submenu***")
+          print(31 * '-')
+          print("1. Set currency")
+          print("2. Set minimum coin input value (Default minimum = 0)")
+          print("3. Set maximum coin input value (Default minimum = 10000)")
+          print("4. Return to Main Menu")
+          print(31 * '-')
 
 ####################
 # Responsive menu  #
@@ -69,25 +72,27 @@ while True:
     while True:
       submenu()
       option = int(input("Enter your option: "))
-      if option == 1:  #Can we use the currency_dict from above to do this?
-        curr = input("Type the currency code (e.g. 'gbp'): ")
-        if curr == 'gbp':
-          print("GBP currency is set.")
-        else:
-          print("Sorry, you cannot select this currency")
-      elif option == 2:
-        p_max= int(input("Enter an amount between 0 to 1000: "))
-        print("The maximum value is set to ", p_max)
-      elif option == 3:
-        p_min= int(input("Enter an amount between 0 to 1000: "))
-        print("The minimum value is set to ", p_min)
-      elif option == 4:
+      if option == 1:
+        while True:
+          curr = input("Type the currency code (e.g. 'gbp' or 'usd', in small caps): ")
+          if curr == 'gbp':
+            print("GBP currency is set.")
             break
+          else:
+            print("Sorry, you cannot select this currency. Try again!")
+        
+      elif option == 2:
+        p_min= int(input("Enter an amount between 0 to 10000: "))
+        print("The minimum value is set to ", p_min)
+      elif option == 3:
+        p_max= int(input("Enter an amount between 0 to 10000: "))
+        print("The maximum value is set to ", p_max)
+      elif option == 4:
+        break
       else:
             print("invalid option. Try again.")
-    #This is where sub menu ends, and main menu is shown again
+  #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
     print("Display program configuration")
   else:    ## default ##
-    print ("Invalid number. Try again...")
     print ("Invalid number. Try again...")
