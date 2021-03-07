@@ -39,7 +39,7 @@ def submenu():
 
 ###User presses a 1-6 key to navigate
 
-while True: 
+while True:
   #This loop will run until break is triggered
   print (31 * '-')
   print ("*** Coin Sorter - Main Menu ***")
@@ -70,27 +70,30 @@ while True:
   elif Entry == 4:
     #This is the sub-menu
     while True:
-      submenu()
-      option = int(input("Enter your option: "))
-      if option == 1:
-        while True:
-          curr = input("Type the currency code (e.g. 'gbp' or 'usd', in small caps): ")
-          if curr == 'gbp':
-            print("GBP currency is set.")
-            break
-          else:
-            print("Sorry, you cannot select this currency. Try again!")
-        
-      elif option == 2:
-        p_min= int(input("Enter an amount between 0 to 10000: "))
-        print("The minimum value is set to ", p_min)
-      elif option == 3:
-        p_max= int(input("Enter an amount between 0 to 10000: "))
-        print("The maximum value is set to ", p_max)
-      elif option == 4:
-        break
-      else:
-            print("invalid option. Try again.")
+      try:
+        submenu()
+        option = int(input("Enter your option: "))
+        if option == 1:
+          while True:
+            curr = input("Type the currency code (e.g. 'gbp' or 'usd', in small caps): ")
+            if curr == 'gbp':
+              print("GBP currency is set.")
+              break
+            else:
+              print("Sorry, you cannot select this currency. Try again!")
+          
+        elif option == 2:
+          p_min= int(input("Enter an amount between 0 to 10000: "))
+          print("The minimum value is set to ", p_min)
+        elif option == 3:
+          p_max= int(input("Enter an amount between 0 to 10000: "))
+          print("The maximum value is set to ", p_max)
+        elif option == 4:
+          break
+        else:
+              print("invalid option. Try again.")
+      except ValueError:
+        print("This needs to be whole number. Try again.")
   #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
     print("Display program configuration")
