@@ -98,7 +98,7 @@ while True:
     print (31 * '-')
     print("Program configuration")
     print (31 * '-')
-    print("The currency is set to ", curr)
+    print("The currency is set to GBP.")
     print("The minimum coin input value is set to ", p_min)
     print("The maximum coin input value is set to", p_max)
   elif Entry == 6:

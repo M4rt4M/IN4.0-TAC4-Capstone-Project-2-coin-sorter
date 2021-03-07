@@ -134,7 +134,16 @@ print("Here are available coins:")
 
 ### Allows you to set details such as currency, adjust max and mimimum input of coins.
 
-def submenu():
+def set_details():
+  def submenu():
+    print(31 * '-')
+    print("***Set Details - Submenu***")
+    print(31 * '-')
+    print("1. Set currency")
+    print("2. Set minimum coin input value (Default minimum = 0)")
+    print("3. Set maximum coin input value (Default minimum = 10000)")
+    print("4. Return to Main Menu")
+    print(31 * '-')
   while True:
     try:
       submenu()
@@ -163,14 +172,29 @@ def submenu():
     except ValueError:
       print("This needs to be whole number. Try again.")
 
+# Create functions
+
+# Ask user for input
+
 # Run
-submenu()
+set_details()
+
 
 #######################################
 # 5 - Display program configurations  #
 #######################################
 
 ### Displays program configurations
+def display_program_config():
+  print (31 * '-')
+  print("Program configuration")
+  print (31 * '-')
+  print("The currency is set to GBP.")
+  print("The minimum coin input value is set to ", p_min)
+  print("The maximum coin input value is set to", p_max)
+
+#Run
+display_program_config()
 
 ####################
 # 6 -   #
