@@ -52,10 +52,7 @@ while True:
   print ("6. Quit The Program")
   print (31 * '-')
   Entry = int(input('\nPlease enter an amount between 1-6:'))
-  if Entry == 6:
-    print("Goodbye")
-    break
-  elif Entry == 1:
+  if Entry == 1:
     ####Here the code for coin sorter goes
     print("This is where the coin sorter would be")
     ####End of coin sorter    
@@ -85,9 +82,11 @@ while True:
         elif option == 2:
           p_min= int(input("Enter an amount between 0 to 10000: "))
           print("The minimum value is set to ", p_min)
+
         elif option == 3:
           p_max= int(input("Enter an amount between 0 to 10000: "))
           print("The maximum value is set to ", p_max)
+          
         elif option == 4:
           break
         else:
@@ -96,6 +95,14 @@ while True:
         print("This needs to be whole number. Try again.")
   #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
-    print("Display program configuration")
+    print (31 * '-')
+    print("Program configuration")
+    print (31 * '-')
+    print("The currency is set to ", curr)
+    print("The minimum coin input value is set to ", p_min)
+    print("The maximum coin input value is set to", p_max)
+  elif Entry == 6:
+    print("Goodbye")
+    break
   else:    ## default ##
     print ("Invalid number. Try again...")
