@@ -132,13 +132,39 @@ print("Here are available coins:")
 # 4 - Set details  #
 ####################
 
-### What it does
+### Allows you to set details such as currency, adjust max and mimimum input of coins.
 
-# Create functions
+def submenu():
+  while True:
+    try:
+      submenu()
+      option = int(input("Enter your option: "))
+      if option == 1:
+        while True:
+          curr = input("Type the currency code (e.g. 'gbp' or 'usd', in small caps): ")
+          if curr == 'gbp':
+            print("GBP currency is set.")
+            break
+          else:
+            print("Sorry, you cannot select this currency. Try again!")
+        
+      elif option == 2:
+        p_min= int(input("Enter an amount between 0 to 10000: "))
+        print("The minimum value is set to ", p_min)
 
-# Ask user for input
+      elif option == 3:
+        p_max= int(input("Enter an amount between 0 to 10000: "))
+        print("The maximum value is set to ", p_max)
+        
+      elif option == 4:
+        break
+      else:
+            print("invalid option. Try again.")
+    except ValueError:
+      print("This needs to be whole number. Try again.")
 
 # Run
+submenu()
 
 #######################################
 # 5 - Display program configurations  #
