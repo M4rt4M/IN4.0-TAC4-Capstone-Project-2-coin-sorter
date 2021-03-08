@@ -109,6 +109,7 @@ while True:
     print("The currency is set to " + currency + ".")
     print("The minimum coin input value is set to ", p_min)
     print("The maximum coin input value is set to", p_max)
+    print (31 * '-')
   elif Entry == 6:
     print("Goodbye")
     break
