@@ -80,11 +80,17 @@ while True:
               print("Sorry, you cannot select this currency. Try again!")
           
         elif option == 2:
-          p_min= int(input("Enter an amount between 0 to 10000: "))
+          p_min= int(input("Enter an amount between 0 to 10000 to set the minimum value: "))
           print("The minimum value is set to ", p_min)
 
         elif option == 3:
-          p_max= int(input("Enter an amount between 0 to 10000: "))
+          p_max= int(input("Enter an amount between 0 to 10000 to set the maximum value: "))
+          while True:
+            if p_max <= p_min:
+              print("The maximum value must be higher than the minimum value " + str(p_min) + ". Try again.")
+              p_max= int(input("Enter an amount between 0 to 10000 to set the maximum value: "))
+            else:
+              break
           print("The maximum value is set to ", p_max)
           
         elif option == 4:
