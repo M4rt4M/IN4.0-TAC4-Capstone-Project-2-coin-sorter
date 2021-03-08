@@ -72,9 +72,11 @@ while True:
         option = int(input("Enter your option: "))
         if option == 1:
           while True:
-            curr = input("Type the currency code (e.g. 'gbp' or 'usd', in small caps): ")
-            if curr == 'gbp':
-              print("GBP currency is set.")
+            curr = input("Type the currency code (GBP, USD or EUR: ")
+            curr = curr.upper()
+            if curr in currency_dict:
+              currency = curr
+              print(currency, " currency is set.")
               break
             else:
               print("Sorry, you cannot select this currency. Try again!")
@@ -102,9 +104,9 @@ while True:
   #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
     print (31 * '-')
-    print("Program configuration")
+    print("Program configurations")
     print (31 * '-')
-    print("The currency is set to GBP.")
+    print("The currency is set to " + currency + ".")
     print("The minimum coin input value is set to ", p_min)
     print("The maximum coin input value is set to", p_max)
   elif Entry == 6:
