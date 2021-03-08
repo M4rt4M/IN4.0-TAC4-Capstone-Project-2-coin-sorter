@@ -126,7 +126,9 @@ multiple_coins()
 ########################
 
 ### Prints available coins
-print("Here are available coins:")
+print ("Here are the available coins: ")
+for i in range(len(coins)):
+  print(coins[i])
 
 ####################
 # 4 - Set details  #
