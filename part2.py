@@ -51,7 +51,7 @@ while True:
   print ("5. Display Program Configurations")
   print ("6. Quit The Program")
   print (31 * '-')
-  Entry = int(input('\nPlease enter an amount between 1-6:'))
+  Entry = int(input('\nEnter an option between 1-6:'))
   if Entry == 1:
     ####Here the code for coin sorter goes
     print("This is where the coin sorter would be")
