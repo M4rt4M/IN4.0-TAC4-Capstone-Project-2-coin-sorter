@@ -128,7 +128,7 @@ def display_program_config():
   print (31 * '-')
   print("Program configuration")
   print (31 * '-')
-  print("The currency is set to GBP.")
+  print("The currency is set to " + currency + ".")
   print("The minimum coin input value is set to ", p_min)
   print("The maximum coin input value is set to", p_max)
 
