@@ -1,3 +1,8 @@
+############################
+# ******** PART 1 ******** #
+############################
+
+
 # Define variables
 values = [200, 100, 50, 20, 10]
 currency_dict = {  #This is a list of available currencies. Added currencies must be decimal, i.e. 1USD = 100 cents. Add new currencies after a comma, in the following format: "currency_code" : "currency_symbol"
