@@ -80,7 +80,7 @@ def single_coin():
         print("\nHere are available denominations: ")
         for i in range(len(coins)):
             print(coins[i])
-        choice=str(input("Please enter one denomination of choice: "))
+        choice=str(input("\nPlease enter one denomination of choice: "))
         if currency == "GBP":  
           if choice in two:
             choice = "£2.00"
@@ -160,7 +160,7 @@ multiple_coins()
 ########################
 
 ### Prints available coins
-print ("Here are the available coins: ")
+print ("\nHere are the available coins: ")
 for i in range(len(coins)):
   print(coins[i])
 
@@ -169,7 +169,16 @@ for i in range(len(coins)):
 ####################
 
 ### Allows you to set details such as currency, adjust max and mimimum input of coins.
-
+def submenu():
+    print(31 * '-')
+    print("***Set Details - Submenu***")
+    print(31 * '-')
+    print("1. Set currency")
+    print("2. Set minimum coin input value (Default minimum = 0)")
+    print("3. Set maximum coin input value (Default minimum = 10000)")
+    print("4. Return to Main Menu")
+    print(31 * '-')
+    
 def set_details():
   #This is the sub-menu
     while True:
@@ -233,7 +242,7 @@ display_program_config()
 ############################
 api_key = 'B1CRPD0B1HSR22CV'
 #The amount variable will be the user's input of the amount needed to be converted
-Amount = float(input("Amount: ")) 
+print("\nThis is the currency converter. Please enter the amount of money you would like to exchange.")Amount = float(input("Amount: ")) 
 # from_c is the currency from which the user is converting from
 from_c = input("From (type the currency code in all caps. E.g. USD for $): ") 
 # to_c is the currency to which the user is converting to
