@@ -118,6 +118,19 @@ def multiple_coins():
       break
     else:
       print("\nSorry, this value is out of range.")
+      
+def available_coins()
+  print ("\nHere are the available coins: ")
+  for i in range(len(coins)):
+    print(coins[i])
+    
+def display_program_config():
+  print (31 * '-')
+  print("Program configuration")
+  print (31 * '-')
+  print("The currency is set to GBP.")
+  print("The minimum coin input value is set to ", p_min)
+  print("The maximum coin input value is set to", p_max)
 
 ####################
 # Responsive menu  #
@@ -147,9 +160,7 @@ while True:
     multiple_coins()
     ####End of coin sorter 
   elif Entry == 3:
-     print ("Here are the available coins: ")
-     for i in range(len(coins)):
-        print(coins[i])
+     available_coins()
   elif Entry == 4:
     #This is the sub-menu
     while True:
@@ -194,13 +205,7 @@ while True:
         print("This needs to be whole number. Try again.")
   #This is where sub menu ends, and main menu is shown again
   elif Entry == 5:
-    print (31 * '-')
-    print("Program configurations")
-    print (31 * '-')
-    print("The currency is set to " + currency + ".")
-    print("The minimum coin input value is set to ", p_min)
-    print("The maximum coin input value is set to", p_max)
-    print (31 * '-')
+    display_program_config()
   elif Entry == 6:
     print("Goodbye")
     break
