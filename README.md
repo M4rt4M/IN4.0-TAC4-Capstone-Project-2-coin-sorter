@@ -2,6 +2,8 @@
 
 This is a project developed as part of IN4.0 Talent Academy programme (Cohort 4).
 
+UPLOAD THE SCREENSHOTS HERE: https://drive.google.com/drive/folders/1fSwkqBcTDGHUSJuLehePM-QISsGCtpBv?usp=sharing
+
 Collaborative space/drafts:
 
 Part 1: https://repl.it/join/pnagllgk-m4rt4m <br>
