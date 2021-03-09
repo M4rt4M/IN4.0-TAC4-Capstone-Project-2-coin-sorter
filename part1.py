@@ -160,9 +160,12 @@ multiple_coins()
 ########################
 
 ### Prints available coins
-print ("\nHere are the available coins: ")
-for i in range(len(coins)):
-  print(coins[i])
+def available_coins()
+  print ("\nHere are the available coins: ")
+  for i in range(len(coins)):
+    print(coins[i])
+    
+ available_coins()
 
 ####################
 # 4 - Set details  #
