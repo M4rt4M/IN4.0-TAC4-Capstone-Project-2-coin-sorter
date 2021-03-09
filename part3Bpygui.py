@@ -54,7 +54,7 @@ def multiple_coin_window(sender, data):
     add_text("Or use slider below")
     add_slider_int("input2#slider", label="##slide", default_value=p_min, max_value=p_max, source="source2")
     add_button("Compute##2", callback=log_data2)
-    add_text("Here is where the code would do its thing")
+    add_text("Here are your results ")
     add_input_text("inputtext1", label = coins[0], readonly=True, default_value="0")
     add_input_text("inputtext2", label = coins[1], readonly=True, default_value="0")
     add_input_text("inputtext3", label = coins[2], readonly=True, default_value="0")
