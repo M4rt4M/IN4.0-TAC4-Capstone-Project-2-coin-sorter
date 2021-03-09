@@ -78,7 +78,7 @@ set_style_window_padding(30,30)
 
 #Design main menu
 with window("Main menu", width=500, height=500):
-    add_image("Image", "Penguins.jpg")
+    add_image("Image", "coins.jpg")
     add_text("Welcome to the coin calculator")
     add_spacing(count=5, name="spacing1")
     add_button("Button1", label="Single coin calculator", callback=single_coin_window)
