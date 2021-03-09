@@ -272,4 +272,6 @@ elif to_c == 'USD':
     print("$",format(Answer, ".2f"))
 elif to_c == 'MGA':
     print("Ar",format(Answer, ".2f"))
+else:
+    print(format(Answer, ".2f") + to_c)
 
