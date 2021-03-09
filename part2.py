@@ -119,7 +119,7 @@ def multiple_coins():
     else:
       print("\nSorry, this value is out of range.")
       
-def available_coins()
+def available_coins():
   print ("\nHere are the available coins: ")
   for i in range(len(coins)):
     print(coins[i])
