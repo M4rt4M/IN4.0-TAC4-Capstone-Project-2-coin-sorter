@@ -1,7 +1,7 @@
 ############################
 # ******** PART 1 ******** #
 ############################
-
+import requests
 
 # Define variables
 values = [200, 100, 50, 20, 10]
@@ -30,6 +30,35 @@ one = ["£1", "£1.0", "£ 1", "1", "1.0", "1.00", "1 pound", "1pound", "1GBP", 
 fifty = ["50p", "£0.5", "£ 0.5", "£ 0.50", "0.50", "0.5", "50 pence", "50pence", "0.5GBP", "0.50GBP", "0.50 GBP", "0.5gbp", "0.50gbp", "0.50 gbp", "fifty", "fifty pence"]
 twenty = ["20p", "£0.2", "£ 0.2", "£ 0.20", "0.20", "0.2", "20 pence", "20pence", "0.2GBP", "0.20GBP", "0.20 GBP", "0.2gbp", "0.20gbp", "0.20 gbp", "twenty", "twenty pence"]
 ten = ["10p", "£0.1", "£ 0.10", "£ 0.1", "0.10", "0.1", "10 pence", "10pence", "0.1GBP", "0.10GBP", "0.10 GBP", "0.1gbp", "0.10gbp", "0.10 gbp", "ten", "ten pence"]
+
+###QUESTION: Can we generate these lists depending on the currency?
+###ANSWER: Yes, but cannot implement it in the same way :(
+d = {}
+def input_generator(currency, values):
+  for i in range(len(values)):
+    temp = []
+    temp.append(currency_dict[currency] + str(values[i]/100) + str(0))
+    temp.append(currency_dict[currency] + str(values[i]/100))
+    temp.append(currency_dict[currency] + " " + str(values[i]/100))
+    temp.append(str(values[i]/100) + currency)
+    temp.append(str(values[i]/100) + " " + currency)
+    temp.append(str(values[i]/100) + currency.lower())
+    temp.append(str(values[i]/100) + " " + currency.lower())
+    temp.append(str(values[i]/100) + "0" + currency)
+    temp.append(str(values[i]/100) + "0 " + currency)
+    temp.append(str(values[i]/100) + "0" + currency.lower())
+    temp.append(str(values[i]/100) + "0 " + currency.lower())
+    temp.append(str(values[i]/100))
+    temp.append(str(values[i]/100) + "0")
+    if values[i] >= 100:
+      temp.append(str(int(values[i]/100)))
+      temp.append(currency_dict[currency] + str(int(values[i]/100)))
+      temp.append(currency_dict[currency] + " " + str(int(values[i]/100)))
+      temp.append(str(int(values[i]/100)) + currency)
+      temp.append(str(int(values[i]/100)) + " " + currency)
+    d["value{0}".format(i)] = temp
+
+input_generator(currency, values)
 
 ###############################
 # 1 - Single coin calculator  #
@@ -142,48 +171,44 @@ for i in range(len(coins)):
 ### Allows you to set details such as currency, adjust max and mimimum input of coins.
 
 def set_details():
-  def submenu():
-    print(31 * '-')
-    print("***Set Details - Submenu***")
-    print(31 * '-')
-    print("1. Set currency")
-    print("2. Set minimum coin input value (Default minimum = 0)")
-    print("3. Set maximum coin input value (Default minimum = 10000)")
-    print("4. Return to Main Menu")
-    print(31 * '-')
-  while True:
-    try:
-      submenu()
-      option = int(input("Enter your option: "))
-      if option == 1:
-        while True:
-          curr = input("Type the currency code (e.g. 'gbp' or 'usd', in small caps): ")
-          if curr == 'gbp':
-            print("GBP currency is set.")
-            break
-          else:
-            print("Sorry, you cannot select this currency. Try again!")
-        
-      elif option == 2:
-        p_min= int(input("Enter an amount between 0 to 10000: "))
-        print("The minimum value is set to ", p_min)
+  #This is the sub-menu
+    while True:
+      try:
+        submenu()
+        option = int(input("Enter your option: "))
+        if option == 1:
+          while True:
+            curr = input("Type the currency code (GBP, USD or EUR: ")
+            curr = curr.upper()
+            if curr in currency_dict:
+              currency = curr
+              print(currency, " currency is set.")
+              break
+            else:
+              print("Sorry, you cannot select this currency. Try again!")
+          
+        elif option == 2:
+          p_min= int(input("Enter an amount between 0 to 10000 to set the minimum value: "))
+          print("The minimum value is set to ", p_min)
 
-      elif option == 3:
-        p_max= int(input("Enter an amount between 0 to 10000: "))
-        print("The maximum value is set to ", p_max)
-        
-      elif option == 4:
-        break
-      else:
-            print("invalid option. Try again.")
-    except ValueError:
-      print("This needs to be whole number. Try again.")
+        elif option == 3:
+          p_max= int(input("Enter an amount between 0 to 10000 to set the maximum value: "))
+          while True:
+            if p_max <= p_min:
+              print("The maximum value must be higher than the minimum value " + str(p_min) + ". Try again.")
+              p_max= int(input("Enter an amount between 0 to 10000 to set the maximum value: "))
+            else:
+              break
+          print("The maximum value is set to ", p_max)
+          
+        elif option == 4:
+          break
+        else:
+              print("invalid option. Try again.")
+      except ValueError:
+        print("This needs to be whole number. Try again.")
 
-# Create functions
 
-# Ask user for input
-
-# Run
 set_details()
 
 
@@ -203,14 +228,39 @@ def display_program_config():
 #Run
 display_program_config()
 
-####################
-# 6 -   #
-####################
+############################
+# 6 - Currency conversion  #
+############################
+api_key = 'B1CRPD0B1HSR22CV'
+#The amount variable will be the user's input of the amount needed to be converted
+Amount = float(input("Amount: ")) 
+# from_c is the currency from which the user is converting from
+from_c = input("From (type the currency code in all caps. E.g. USD for $): ") 
+# to_c is the currency to which the user is converting to
+to_c = input("To (type the currency code in all caps. E.g. USD for $): ") 
 
-### What it does
+# base_url variable store base url 
+base_url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE'
+# main_url variable store complete url 
+main_url = base_url + '&from_currency=' + from_c + '&to_currency=' + to_c + '&apikey=' + api_key
 
-# Create functions
+# get method of requests module  
+# return response object  
+response = requests.get(main_url)
+result = response.json()
+#The 'key' variable key will store the 'Realtime currency Exchange Rate' contents
+# Exrate variable will store the exchange rate which is inside the key
+key = result['Realtime Currency Exchange Rate']
+Exrate = key['5. Exchange Rate']
 
-# Ask user for input
+#The answer is the variable in which you get the converted amount you need
+Answer = (float(Exrate)*Amount)
 
-# Run
+#The if statements print the answer with the appropriate currency symbol
+if to_c == 'GBP':
+    print("£",format(Answer, ".2f"))  
+elif to_c == 'USD':
+    print("$",format(Answer, ".2f"))
+elif to_c == 'MGA':
+    print("Ar",format(Answer, ".2f"))
+
