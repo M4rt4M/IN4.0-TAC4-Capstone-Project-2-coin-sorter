@@ -31,21 +31,21 @@ Finally, the user should be able to covert from pounds sterling to US dollars AN
 5 - Display program configurations <br>
 6 - Quit the program<br><br></p>
 
-These menu choices should be repeated until the user quits. Option 1 and 2 should prompt the user to enter some values, where the input values should be validated before being passed to the relevant methods in order to generate some results.
-When Option 4 is chosen, the user should be presented with the following sub-menu allowing them to interactively set the following details for the program:
+<p>These menu choices should be repeated until the user quits. Option 1 and 2 should prompt the user to enter some values, where the input values should be validated before being passed to the relevant methods in order to generate some results.</p>
+<p>When Option 4 is chosen, the user should be presented with the following sub-menu allowing them to interactively set the following details for the program: <br><br>
 
-***Set Details Sub-Menu*** 
-1 - Set currency 
-2 - Set minimum coin input value 
-3 - Set maximum coin input value 
-4 - Return to main menu
+***Set Details Sub-Menu*** <br>
+1 - Set currency <br>
+2 - Set minimum coin input value <br>
+3 - Set maximum coin input value <br>
+4 - Return to main menu <br><br></p>
 
-These menu choices should be repeated until the user chooses Option 4 in the Sub-Menu and returns to the main menu. Again, all user input values should be validated.
+<p>These menu choices should be repeated until the user chooses Option 4 in the Sub-Menu and returns to the main menu. Again, all user input values should be validated.</p>
 
-Part 3:
-Create a GUI for the menu. The user should be presented with a graphical menu based on the structure of the textual menu created in Part 2. You should make any changes necessary to the original text menu code to meet the requirements of Part 3.
+<h2>Part 3:</h2>
+<p>Create a GUI for the menu. The user should be presented with a graphical menu based on the structure of the textual menu created in Part 2. You should make any changes necessary to the original text menu code to meet the requirements of Part 3.</p>
 
-You can use either PyQT or PyGUI. The technology choice has no impact on the marking process; you should ensure that the GUI components are:
-• Appropriately selected for the intended purpose e.g. you shouldn’t use checkboxes for menu options.
-• You should investigate and implement a range of GUI components e.g. the GUI shouldn’t only consist of a single textbox duplicated across all options.
-• All information and options are clearly indicated in the design e.g. the user can intuitively understand what, where and how information should be input/output.
+<p>You can use either PyQT or PyGUI. The technology choice has no impact on the marking process; you should ensure that the GUI components are: <br>
+• Appropriately selected for the intended purpose e.g. you shouldn’t use checkboxes for menu options. <br>
+• You should investigate and implement a range of GUI components e.g. the GUI shouldn’t only consist of a single textbox duplicated across all options. <br>
+• All information and options are clearly indicated in the design e.g. the user can intuitively understand what, where and how information should be input/output. <br></p>
