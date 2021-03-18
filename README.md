@@ -7,6 +7,7 @@ Part 1: https://repl.it/join/pnagllgk-m4rt4m <br>
 Menu: https://repl.it/join/uteirigr-m4rt4m <br>
 Dear PyGUI: https://repl.it/join/fmcyqhyx-m4rt4m <br>
 
+# Project brief
 <h2>Part 1:</h2>
 <p>You are required to develop a coin sorting program, using Pound sterling (£) as the default currency. Note: 1 pound is equal to 100 pennies e.g. £1 = 100p. </p>
 <p>The following coins (in order of priority) are in circulation in the scope of this program: <br>
@@ -21,7 +22,7 @@ Dear PyGUI: https://repl.it/join/fmcyqhyx-m4rt4m <br>
 Finally, the user should be able to covert from pounds sterling to US dollars AND Malagasy ariary using a real time currency converter such as https://free.currencyconverterapi.com/.</p>
 
 <h2>Part 2:</h2>
-<p>Create a text menu for the coin sorter. The user should be presented with the following menu: <br><br>
+<p>Create a text menu for the coin sorter. The user should be presented with the following menu: <br>
 
 ***Coin Sorter - Main Menu*** <br>
 1 - Coin calculator <br>
@@ -29,16 +30,16 @@ Finally, the user should be able to covert from pounds sterling to US dollars AN
 3 - Print coin list <br>
 4 - Set details <br>
 5 - Display program configurations <br>
-6 - Quit the program<br><br></p>
+6 - Quit the program<br></p>
 
 <p>These menu choices should be repeated until the user quits. Option 1 and 2 should prompt the user to enter some values, where the input values should be validated before being passed to the relevant methods in order to generate some results.</p>
-<p>When Option 4 is chosen, the user should be presented with the following sub-menu allowing them to interactively set the following details for the program: <br><br>
+<p>When Option 4 is chosen, the user should be presented with the following sub-menu allowing them to interactively set the following details for the program: <br>
 
 ***Set Details Sub-Menu*** <br>
 1 - Set currency <br>
 2 - Set minimum coin input value <br>
 3 - Set maximum coin input value <br>
-4 - Return to main menu <br><br></p>
+4 - Return to main menu <br></p>
 
 <p>These menu choices should be repeated until the user chooses Option 4 in the Sub-Menu and returns to the main menu. Again, all user input values should be validated.</p>
 
